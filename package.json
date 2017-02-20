@@ -1,0 +1,35 @@
+{
+  "name": "writesmart",
+  "version": "1.0.0",
+  "description": " A note taking application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Afolabii/exercise.git"
+  },
+  "keywords": [
+    "Notes",
+    "node.js",
+    "firebase",
+    "console",
+    "json",
+    "commands"
+  ],
+  "author": "Imisioluwa Akande",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Afolabii/exercise/issues"
+  },
+  "homepage": "https://github.com/Afolabii/exercise#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "clear": "0.0.1",
+    "clui": "^0.3.1",
+    "figlet": "^1.2.0",
+    "inquirer": "^3.0.1",
+    "minimist": "^1.2.0"
+  }
+}

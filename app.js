@@ -50,7 +50,13 @@ class NotesApp {
 			return notesCopies;
 		}
 		else {
-			let notesArray = notesCopies.entries();
+			let notesArray = ((notesCopies) => {
+				let temp = [];
+				for (let item in notesCopies) {
+					temp.push([item, notesCopies[item]]);
+				}
+				return temp;
+			})(notesCopies);
 			let initialDataShown = notesArray.splice(0, limit);
 			this.currentQuery = {"unshownData": notesArray, "limit": limit };
 			return initialDataShown;
@@ -87,7 +93,9 @@ class note {
 }
 
 let newNotesApp = new NotesApp();
-let Note = newNotesApp.createNote('Test the notesapp', 'this is just a test');
+newNotesApp.createNote('Test the notesapp', 'this is just a test');
+newNotesApp.createNote('Another test', 'this is another test');
 console.log(newNotesApp.notes);
 newNotesApp.editNote('Test-the-1', "Test the NotesApp class", "Like I said, this is just a test");
-console.log(newNotesApp.getAllNotes());
+console.log(newNotesApp.getAllNotes(1));
+console.log(newNotesApp.next());

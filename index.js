@@ -12,7 +12,7 @@ vorpal
 	.then((credentials) => {
 		NoteApp.signup(credentials)
 		.then((message) => {
-			cli.loginSignupOutput(message);
+			cli.outputMessage(message);
 			cb();
 		});
 	});
@@ -25,7 +25,7 @@ vorpal
 	.then((credentials) => {
 		NoteApp.login(credentials)
 		.then((message) => {
-			cli.loginSignupOutput(message);
+			cli.outputMessage(message);
 			cb();
 		});
 	});
@@ -73,6 +73,26 @@ vorpal
 .action((args, cb) => {
 	cli.listNotesOutput(NoteApp.next());
 	cb();
+});
+
+vorpal
+.command('syncnotes', "Synchronize notes with online datastore")
+.action((args, cb) => {
+	NoteApp.syncNotes()
+	.then((message) => {
+		cli.outputMessage(message);
+		cb();
+	});
+});
+
+vorpal
+.command('logout', "Log out from writesmart")
+.action((args, cb) => {
+	NoteApp.logout()
+	.then((message) => {
+		cli.outputMessage(message);
+		cb();
+	});
 });
 
 vorpal

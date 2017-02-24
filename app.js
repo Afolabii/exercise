@@ -1,4 +1,5 @@
 const firebase = require('firebase');
+const jsonfile = require('jsonfile');
 
 const config = {
     apiKey: "AIzaSyCCrecOwhstv7Z_q-tyjCz21hopgZCB4i0",
@@ -197,6 +198,18 @@ class NotesApp {
 		}
 		regexPattern += String.raw`[^]*$`
 		return new RegExp(regexPattern);
+	}
+
+	exportNotes(cb) {
+		let filename = __dirname+'/notes.json';
+		jsonfile.writeFile(filename, this.notes, (err) => {
+			if (!err) {
+				return cb("Notes export complete:::::::::Success");
+			}
+			else {
+				return cb("Notes export Failed");
+			}
+		});
 	}
 }
 
